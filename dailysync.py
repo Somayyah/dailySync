@@ -3,8 +3,8 @@ import subprocess
 import os
 from multiprocessing import Pool
 
-os.chdir('/home/student-01-b534ea5ecda6/data/')
-dest = "/home/student-01-b534ea5ecda6/data/prod_backup/"
+os.chdir("~/data/")
+dest = "~/data/prod_backup/"
 list=[]
 
 for path,dir,file in os.walk('prod/'):
@@ -14,7 +14,7 @@ list=list[0]
 print("List: ", list)
 
 def backup(list):
-        src = "/home/student-01-b534ea5ecda6/data/prod/"+str(list)
+        src = "/prod/"+str(list)
         print("src: {}".format(src))
         try:
                 subprocess.call(["rsync", "-arq", src, dest])
